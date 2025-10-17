@@ -1,0 +1,12 @@
+```json
+{
+  "routes": [
+    { 
+      "src": "/[^.]+", 
+      "dest": "/index.html", 
+      "status": 200 
+    }
+            ]
+}
+
+```
