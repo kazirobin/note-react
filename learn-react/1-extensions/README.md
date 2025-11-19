@@ -74,6 +74,9 @@ Visual Studio Code (VS Code) is one of the most popular code editors, known for 
 24. **Code Runner (formulahendry.code-runner)**
     Run C, C++, Java, JS, PHP, Python, Perl, Ruby, Go, Lua, Groovy, PowerShell, CMD, BASH, F#, C#, VBScript, TypeScript
     
+24. **CSS Navigation (pucelle.vscode-css-navigation)**
+   Provides CSS Completion, Finding Definition, Finding References, Diagnostic, Hover, Workspace Symbols services
+   
 22. ****
    
 
