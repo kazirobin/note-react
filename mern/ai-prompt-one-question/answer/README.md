@@ -1,343 +1,323 @@
-MERN Stack Engineer থেকে Senior/Staff Engineer: Hyper-Structured Roadmap
+# MERN Stack Engineer থেকে Senior/Staff Engineer: হাইপার-স্ট্রাকচার্ড রোডম্যাপ
 
 ---
 
-Phase 1: Advanced JavaScript & TypeScript Mastery
-
-Core Topics
-
-· Execution Context & Call Stack: Lexical scoping, closures, hoisting (temporal dead zone)
-· Asynchronous Deep Dive: Event loop, microtask/macrotask queues, Promise internals, async/await transpilation
-· Prototypal Inheritance vs ES6 Classes: Object.create(), new keyword internals, mixins
-· TypeScript Compiler Deep Dive: tsconfig.json flags (strict, noImplicitAny, moduleResolution), declaration files, isolatedModules
-· Advanced TypeScript: Conditional types, mapped types, template literal types, type guards, infer keyword, satisfies operator
-
-Advanced Topics
-
-· Memory Management: Garbage collection (mark-and-sweep), memory leaks detection (heap snapshots, Chrome DevTools)
-· Metaprogramming: Proxy, Reflect, Symbol, decorators (Stage 3)
-· Performance Optimization: Micro-optimizations, V8 hidden classes, deoptimization
-· Build Tooling Internals: ESBuild, SWC vs Babel, tree-shaking mechanisms
-
-Real-world Concepts
-
-· Error Handling Patterns: Result types (Either/Option), domain errors, structured logging
-· Monorepo Management: Turborepo, Nx, workspace configurations
-· Code Quality Enforcement: ESLint custom rules, Husky, lint-staged, semantic commits
-
-Tools & Libraries
-
-· tsx, ts-node, vitest/jest
-· zod (runtime validation)
-· ts-pattern (exhaustive matching)
-· effect-ts (for functional effects)
-
-✅ What you should be able to build:
-A fully-typed, production-grade CLI tool (e.g., an ETL pipeline processor) with complex async flows, error handling with discriminated unions, and zero runtime type errors—deployed as an npm package with CI/CD.
-
-✅ Common mistakes to avoid:
-
-· Overusing any—instead, leverage unknown with type guards.
-· Ignoring memory leaks in event listeners or timers—use WeakRef and cleanup functions.
-· Misunderstanding microtask queuing causing race conditions—always understand Promise ordering.
+## 📌 ভূমিকা
+এই রোডম্যাপটি MERN Stack-এ Mid-to-Senior লেভেলের ইঞ্জিনিয়ারদের Senior/Staff Engineer লেভেলে নিয়ে যাওয়ার জন্য ডিজাইন করা হয়েছে। প্রতিটি ফেজ ৪-৬ সপ্তাহের একাগ্র, ডেইলি এক্সিকিউশনের জন্য তৈরি। শুধু টিউটোরিয়াল দেখা নয়, প্রতিটি টপিকের সাথে প্রোডাকশন-গ্রেড প্রজেক্ট বিল্ড করতে হবে।
 
 ---
 
-Phase 2: Frontend Engineering (React + Next.js 14+)
+## Phase 1: অ্যাডভান্সড জাভাস্ক্রিপ্ট ও টাইপস্ক্রিপ্ট মাস্টারি
 
-Core Topics
+### Core Topics (মূল বিষয়)
+- **এক্সিকিউশন কনটেক্সট ও কল স্ট্যাক**: লেক্সিক্যাল স্কোপিং, ক্লোজার, হোইস্টিং (টেম্পোরাল ডেড জোন)
+- **অ্যাসিনক্রোনাস ডিপ ডাইভ**: ইভেন্ট লুপ, মাইক্রোটাস্ক/ম্যাক্রোটাস্ক কিউ, প্রমিজ ইন্টারনাল, async/await ট্রান্সপাইলেশন
+- **প্রোটোটাইপাল ইনহেরিটেন্স বনাম ES6 ক্লাস**: `Object.create()`, `new` কিওয়ার্ড ইন্টারনাল, মিক্সিনস
+- **টাইপস্ক্রিপ্ট কম্পাইলার ডিপ ডাইভ**: `tsconfig.json` ফ্ল্যাগ (`strict`, `noImplicitAny`, `moduleResolution`), ডিক্লারেশন ফাইল, `isolatedModules`
+- **অ্যাডভান্সড টাইপস্ক্রিপ্ট**: কন্ডিশনাল টাইপ, ম্যাপড টাইপ, টেমপ্লেট লিটারেল টাইপ, টাইপ গার্ড, `infer` কিওয়ার্ড, `satisfies` অপারেটর
 
-· React 18+ Internals: Concurrent rendering, automatic batching, useTransition, useDeferredValue, Suspense for data fetching
-· Server Components (RSC): Client/server boundaries, streaming SSR, "use client" directive implications
-· Next.js App Router: Nested layouts, parallel routes, intercepting routes, route handlers, middleware
-· Advanced Patterns: Compound components, render props, controlled/uncontrolled components, higher-order components (with TypeScript)
+### Advanced Topics (উন্নত বিষয়)
+- **মেমরি ম্যানেজমেন্ট**: গার্বেজ কালেকশন (মার্ক-অ্যান্ড-সুইপ), মেমরি লিক ডিটেকশন (হিপ স্ন্যাপশট, ক্রোম ডেভটুলস)
+- **মেটাপ্রোগ্রামিং**: প্রক্সি, রিফ্লেক্ট, সিম্বল, ডেকোরেটর (স্টেজ ৩)
+- **পারফরম্যান্স অপ্টিমাইজেশন**: মাইক্রো-অপ্টিমাইজেশন, V8 হিডেন ক্লাস, ডিঅপ্টিমাইজেশন
+- **বিল্ড টুলিং ইন্টারনাল**: ESBuild, SWC বনাম Babel, ট্রি-শেকিং মেকানিজম
 
-Advanced Topics
+### Real-world Concepts (বাস্তবধর্মী ধারণা)
+- **এরর হ্যান্ডলিং প্যাটার্ন**: রেজাল্ট টাইপ (Either/Option), ডোমেইন এরর, স্ট্রাকচার্ড লগিং
+- **মনোরিপো ম্যানেজমেন্ট**: টার্বোরেপো, Nx, ওয়ার্কস্পেস কনফিগারেশন
+- **কোড কোয়ালিটি এনফোর্সমেন্ট**: ESLint কাস্টম রুল, হাস্কি, লিন্ট-স্টেজড, সিম্যান্টিক কমিট
 
-· Custom Renderer: React Reconciler understanding (e.g., building a custom renderer)
-· Performance Profiling: React DevTools profiler, why-render, memoization strategies (React.memo, useMemo, useCallback)
-· Module Federation: Micro-frontends with Webpack 5 Module Federation, shared dependencies
-· Edge Runtime: Middleware, edge functions, Vercel Edge Config
+### Tools & Libraries (টুলস ও লাইব্রেরি)
+- `tsx`, `ts-node`, `vitest`/`jest`
+- `zod` (রানটাইম ভ্যালিডেশন)
+- `ts-pattern` (এক্সহস্টিভ ম্যাচিং)
+- `effect-ts` (ফাংশনাল ইফেক্টস)
 
-Real-world Concepts
+✅ **এই ফেজ শেষে যা বানাতে পারবেন:**  
+একটি সম্পূর্ণ টাইপ-সেফ, প্রোডাকশন-গ্রেড CLI টুল (যেমন ETL পাইপলাইন প্রসেসর) যাতে জটিল অ্যাসিনক্রোনাস ফ্লো, ডিসক্রিমিনেটেড ইউনিয়নের মাধ্যমে এরর হ্যান্ডলিং, এবং জিরো রানটাইম টাইপ এরর থাকবে। CI/CD সহ npm প্যাকেজ হিসেবে ডিপ্লয় করতে পারবেন।
 
-· SEO & Core Web Vitals: LCP, FID, CLS optimization strategies, metadata API, sitemap generation
-· Internationalization (i18n): next-intl, routing strategies, static vs dynamic rendering
-· Authentication Patterns: NextAuth.js (Auth.js), JWT session handling, middleware protection, role-based access control
-
-Tools & Libraries
-
-· next.js (latest), react-email
-· @radix-ui (unstyled primitives)
-· tailwindcss, framer-motion
-· storybook (component-driven development)
-
-✅ What you should be able to build:
-A fully-featured e-commerce platform with product catalog (RSC), real-time cart (client components), authenticated dashboard (middleware), server-side mutations, and 90+ Lighthouse score on mobile.
-
-✅ Common mistakes to avoid:
-
-· Over-fetching in Server Components—use fetch with caching strategies.
-· Misusing useEffect for derived state—use useMemo or state initializers.
-· Ignoring bundle size—use next/dynamic and analyze with @next/bundle-analyzer.
+✅ **সাধারণ ভুল ও প্রতিকার:**
+- `any` এর অতিরিক্ত ব্যবহার - বরং `unknown` টাইপ ব্যবহার করুন এবং টাইপ গার্ড প্রয়োগ করুন।
+- ইভেন্ট লিসেনার বা টাইমারে মেমরি লিক উপেক্ষা - `WeakRef` এবং ক্লিনআপ ফাংশন ব্যবহার করুন।
+- মাইক্রোটাস্ক কিউয়িং বোঝার ভুল - প্রমিজ অর্ডারিং ভালোভাবে বুঝুন।
 
 ---
 
-Phase 3: State Management & Data Layer
+## Phase 2: ফ্রন্টএন্ড ইঞ্জিনিয়ারিং (React + Next.js 14+)
 
-Core Topics
+### Core Topics (মূল বিষয়)
+- **React 18+ ইন্টারনাল**: কনকারেন্ট রেন্ডারিং, অটোমেটিক ব্যাচিং, `useTransition`, `useDeferredValue`, ডাটা ফেচিং-এ Suspense
+- **সার্ভার কম্পোনেন্ট (RSC)**: ক্লায়েন্ট/সার্ভার বাউন্ডারি, স্ট্রিমিং SSR, `"use client"` ডিরেক্টিভের প্রভাব
+- **Next.js অ্যাপ রাউটার**: নেস্টেড লেআউট, প্যারালাল রুট, ইন্টারসেপটিং রুট, রাউট হ্যান্ডলার, মিডলওয়্যার
+- **অ্যাডভান্সড প্যাটার্ন**: কম্পাউন্ড কম্পোনেন্ট, রেন্ডার প্রপস, কন্ট্রোল্ড/আনকন্ট্রোল্ড কম্পোনেন্ট, হায়ার-অর্ডার কম্পোনেন্ট (টাইপস্ক্রিপ্ট সহ)
 
-· Server State vs Client State: Distinction, caching strategies, stale-while-revalidate
-· TanStack Query (React Query): Query keys, infinite queries, optimistic updates, query invalidation, offline support
-· Zustand/Jotai: Atomic state, middleware (persist, devtools), cross-component communication
-· URL as Source of Truth: Search params, Next.js useSearchParams, routing-based state
+### Advanced Topics (উন্নত বিষয়)
+- **কাস্টম রেন্ডারার**: React রিকনসাইলার বোঝাপড়া (যেমন কাস্টম রেন্ডারার বিল্ড করা)
+- **পারফরম্যান্স প্রোফাইলিং**: React ডেভটুলস প্রোফাইলার, হোয়াই-রেন্ডার, মেমোয়াইজেশন স্ট্র্যাটেজি (`React.memo`, `useMemo`, `useCallback`)
+- **মডিউল ফেডারেশন**: Webpack 5 মডিউল ফেডারেশন দিয়ে মাইক্রো-ফ্রন্টএন্ড, শেয়ারড ডিপেন্ডেন্সি
+- **এজ রানটাইম**: মিডলওয়্যার, এজ ফাংশন, Vercel এজ কনফিগ
 
-Advanced Topics
+### Real-world Concepts (বাস্তবধর্মী ধারণা)
+- **SEO ও কোর ওয়েব ভাইটাল**: LCP, FID, CLS অপ্টিমাইজেশন স্ট্র্যাটেজি, মেটাডাটা API, সাইটম্যাপ জেনারেশন
+- **ইন্টারন্যাশনালাইজেশন (i18n)**: `next-intl`, রাউটিং স্ট্র্যাটেজি, স্ট্যাটিক বনাম ডায়নামিক রেন্ডারিং
+- **অথেন্টিকেশন প্যাটার্ন**: NextAuth.js (Auth.js), JWT সেশন হ্যান্ডলিং, মিডলওয়্যার প্রোটেকশন, রোল-বেসড অ্যাক্সেস কন্ট্রোল
 
-· GraphQL Client: Apollo Client/URQL, normalized caching, pagination, subscriptions
-· State Machine: XState, finite state machines, actor model, visual statecharts
-· Reactive Programming: RxJS with React (signals pattern)
+### Tools & Libraries (টুলস ও লাইব্রেরি)
+- `next.js` (সর্বশেষ ভার্সন), `react-email`
+- `@radix-ui` (আনস্টাইলড প্রিমিটিভস)
+- `tailwindcss`, `framer-motion`
+- `storybook` (কম্পোনেন্ট-ড্রিভেন ডেভেলপমেন্ট)
 
-Real-world Concepts
+✅ **এই ফেজ শেষে যা বানাতে পারবেন:**  
+একটি সম্পূর্ণ ই-কমার্স প্ল্যাটফর্ম যাতে প্রোডাক্ট ক্যাটালগ (RSC), রিয়েল-টাইম কার্ট (ক্লায়েন্ট কম্পোনেন্ট), অথেন্টিকেটেড ড্যাশবোর্ড (মিডলওয়্যার), সার্ভার-সাইড মিউটেশন থাকবে এবং মোবাইল ডিভাইসে ৯০+ লাইটহাউস স্কোর নিশ্চিত করতে পারবেন।
 
-· Offline-First: IndexedDB (Dexie.js), sync engines, conflict resolution
-· Form State: react-hook-form with Zod, field arrays, complex validation schemas
-· Data Consistency: Optimistic vs pessimistic updates, rollback strategies
-
-Tools & Libraries
-
-· @tanstack/react-query, @tanstack/react-table
-· zustand, jotai, xstate
-· react-hook-form, zod
-· dexie (IndexedDB wrapper)
-
-✅ What you should be able to build:
-A collaborative task management app with real-time sync, offline support, optimistic updates, complex form workflows (multi-step, conditional fields), and undo/redo functionality.
-
-✅ Common mistakes to avoid:
-
-· Keeping all state in global store—co-locate state to where it's used.
-· Not handling race conditions in async queries—use useQuery cancellation or AbortController.
-· Over-engineering with Redux for simple apps—choose appropriate abstraction.
+✅ **সাধারণ ভুল ও প্রতিকার:**
+- সার্ভার কম্পোনেন্টে অতিরিক্ত ডাটা ফেচিং - `fetch`-এ ক্যাশিং স্ট্র্যাটেজি ব্যবহার করুন।
+- ডিরাইভড স্টেটের জন্য `useEffect`-এর ভুল ব্যবহার - বরং `useMemo` বা স্টেট ইনিশিয়ালাইজার ব্যবহার করুন।
+- বান্ডল সাইজ উপেক্ষা - `next/dynamic` ব্যবহার করুন এবং `@next/bundle-analyzer` দিয়ে বিশ্লেষণ করুন।
 
 ---
 
-Phase 4: Scalable Backend Engineering (Node.js + Express)
+## Phase 3: স্টেট ম্যানেজমেন্ট ও ডাটা লেয়ার
 
-Core Topics
+### Core Topics (মূল বিষয়)
+- **সার্ভার স্টেট বনাম ক্লায়েন্ট স্টেট**: পার্থক্য, ক্যাশিং স্ট্র্যাটেজি, স্টেইল-হোয়াইল-রিভ্যালিডেট
+- **TanStack Query (React Query)**: কোয়েরি কি, ইনফিনিট কোয়েরি, অপটিমিস্টিক আপডেট, কোয়েরি ইনভ্যালিডেশন, অফলাইন সাপোর্ট
+- **Zustand/Jotai**: অ্যাটমিক স্টেট, মিডলওয়্যার (পারসিস্ট, ডেভটুলস), ক্রস-কম্পোনেন্ট কমিউনিকেশন
+- **URL অ্যাজ সোর্স অফ ট্রুথ**: সার্চ প্যারামস, Next.js `useSearchParams`, রাউটিং-বেসড স্টেট
 
-· Node.js Internals: Event loop, worker threads, cluster module, child processes
-· Express/Fastify Deep Dive: Middleware chain, error handling, request lifecycle, async middleware
-· API Design: RESTful principles, versioning, OpenAPI/Swagger spec generation
-· Authentication & Authorization: JWT (access/refresh tokens), OAuth2/OIDC (Google, GitHub), session management, RBAC, ABAC
+### Advanced Topics (উন্নত বিষয়)
+- **GraphQL ক্লায়েন্ট**: Apollo Client/URQL, নরমালাইজড ক্যাশিং, পেজিনেশন, সাবস্ক্রিপশন
+- **স্টেট মেশিন**: XState, ফাইনাইট স্টেট মেশিন, অ্যাক্টর মডেল, ভিজুয়াল স্টেটচার্ট
+- **রিঅ্যাকটিভ প্রোগ্রামিং**: RxJS with React (সিগন্যালস প্যাটার্ন)
 
-Advanced Topics
+### Real-world Concepts (বাস্তবধর্মী ধারণা)
+- **অফলাইন-ফার্স্ট**: IndexedDB (Dexie.js), সিঙ্ক ইঞ্জিন, কনফ্লিক্ট রেজোলিউশন
+- **ফর্ম স্টেট**: `react-hook-form` with Zod, ফিল্ড অ্যারে, কমপ্লেক্স ভ্যালিডেশন স্কিমা
+- **ডাটা কনসিসটেন্সি**: অপটিমিস্টিক বনাম পেসিমিস্টিক আপডেট, রোলব্যাক স্ট্র্যাটেজি
 
-· Performance Tuning: Load testing (k6), profiling (clinic.js), flamegraphs
-· Advanced Security: Helmet.js, rate limiting (upstash/redis), CORS, CSRF protection, SQL/NoSQL injection prevention
-· Logging & Observability: Structured logging (pino), correlation IDs, OpenTelemetry tracing
-· WebSockets: Socket.io or WS with Redis adapter, horizontal scaling
+### Tools & Libraries (টুলস ও লাইব্রেরি)
+- `@tanstack/react-query`, `@tanstack/react-table`
+- `zustand`, `jotai`, `xstate`
+- `react-hook-form`, `zod`
+- `dexie` (IndexedDB র‍্যাপার)
 
-Real-world Concepts
+✅ **এই ফেজ শেষে যা বানাতে পারবেন:**  
+একটি কলাবোরেটিভ টাস্ক ম্যানেজমেন্ট অ্যাপ যাতে রিয়েল-টাইম সিঙ্ক, অফলাইন সাপোর্ট, অপটিমিস্টিক আপডেট, কমপ্লেক্স ফর্ম ওয়ার্কফ্লো (মাল্টি-স্টেপ, কন্ডিশনাল ফিল্ড), এবং আন্ডো/রিডু ফাংশনালিটি থাকবে।
 
-· Request Lifecycle: Incoming request → middleware → validation → service layer → repository → response
-· Domain-Driven Design: Separation of concerns (controllers, services, repositories), dependency injection
-· Background Jobs: BullMQ, worker queues, cron jobs, dead-letter queues
-
-Tools & Libraries
-
-· fastify (performance-focused alternative to Express)
-· bullmq, ioredis
-· pino, winston
-· helmet, cors, express-rate-limit
-· zod for request/response validation
-
-✅ What you should be able to build:
-A high-throughput API gateway handling 10k+ requests/second with rate limiting, authentication, request validation, structured logging, distributed tracing, and graceful shutdown—deployed in a containerized environment.
-
-✅ Common mistakes to avoid:
-
-· Blocking the event loop—always use async/await, avoid fs.readFileSync.
-· Exposing sensitive data in error responses—use generic error messages in production.
-· Not handling uncaught exceptions/rejections—implement process.on('uncaughtException') with graceful shutdown.
+✅ **সাধারণ ভুল ও প্রতিকার:**
+- সব স্টেট গ্লোবাল স্টোরে রাখা - স্টেট কো-লোকেট করুন যেখানে ব্যবহার হয়।
+- অ্যাসিন্ক কোয়েরিতে রেস কন্ডিশন না হ্যান্ডল করা - `useQuery` ক্যানসেলেশন বা `AbortController` ব্যবহার করুন।
+- সাধারণ অ্যাপে Redux দিয়ে ওভার-ইঞ্জিনিয়ারিং - উপযুক্ত অ্যাবস্ট্রাকশন নির্বাচন করুন।
 
 ---
 
-Phase 5: Database Architecture (MongoDB)
+## Phase 4: স্কেলেবল ব্যাকএন্ড ইঞ্জিনিয়ারিং (Node.js + Express)
 
-Core Topics
+### Core Topics (মূল বিষয়)
+- **Node.js ইন্টারনাল**: ইভেন্ট লুপ, ওয়ার্কার থ্রেড, ক্লাস্টার মডিউল, চাইল্ড প্রসেস
+- **Express/Fastify ডিপ ডাইভ**: মিডলওয়্যার চেইন, এরর হ্যান্ডলিং, রিকোয়েস্ট লাইফসাইকেল, অ্যাসিন্ক মিডলওয়্যার
+- **API ডিজাইন**: RESTful প্রিন্সিপল, ভার্শনিং, OpenAPI/Swagger স্পেক জেনারেশন
+- **অথেন্টিকেশন ও অথরাইজেশন**: JWT (অ্যাক্সেস/রিফ্রেশ টোকেন), OAuth2/OIDC (গুগল, গিটহাব), সেশন ম্যানেজমেন্ট, RBAC, ABAC
 
-· Data Modeling Patterns: One-to-many, many-to-many, polymorphic associations, embedded vs referenced documents
-· Indexing Strategy: Single field, compound, multikey, text, geospatial indexes; index intersection
-· Aggregation Pipeline: $match, $group, $lookup, $unwind, $facet, $bucket, pipeline stages optimization
-· Transactions: Multi-document ACID transactions (with replica sets)
+### Advanced Topics (উন্নত বিষয়)
+- **পারফরম্যান্স টিউনিং**: লোড টেস্টিং (k6), প্রোফাইলিং (clinic.js), ফ্লেমগ্রাফ
+- **অ্যাডভান্সড সিকিউরিটি**: Helmet.js, রেট লিমিটিং (upstash/redis), CORS, CSRF প্রোটেকশন, SQL/NoSQL ইনজেকশন প্রিভেনশন
+- **লগিং ও অবজার্ভেবিলিটি**: স্ট্রাকচার্ড লগিং (pino), করিলেশন আইডি, OpenTelemetry ট্রেসিং
+- **WebSockets**: Socket.io বা WS with Redis অ্যাডাপ্টার, হরাইজন্টাল স্কেলিং
 
-Advanced Topics
+### Real-world Concepts (বাস্তবধর্মী ধারণা)
+- **রিকোয়েস্ট লাইফসাইকেল**: ইনকামিং রিকোয়েস্ট → মিডলওয়্যার → ভ্যালিডেশন → সার্ভিস লেয়ার → রিপোজিটরি → রেসপন্স
+- **ডোমেইন-ড্রিভেন ডিজাইন**: কনসার্ন সেপারেশন (কন্ট্রোলার, সার্ভিস, রিপোজিটরি), ডিপেন্ডেন্সি ইনজেকশন
+- **ব্যাকগ্রাউন্ড জব**: BullMQ, ওয়ার্কার কিউ, ক্রন জব, ডেড-লেটার কিউ
 
-· Performance Optimization: Explain plans, index hints, covered queries, shard key selection
-· Change Streams: Real-time data synchronization, event-driven architectures
-· Replication & Sharding: Replica sets (failover), sharded clusters, zone sharding
-· Migration Strategies: Database migrations with migration tools (umzug), zero-downtime deployments
+### Tools & Libraries (টুলস ও লাইব্রেরি)
+- `fastify` (পারফরম্যান্স-ফোকাসড Express বিকল্প)
+- `bullmq`, `ioredis`
+- `pino`, `winston`
+- `helmet`, `cors`, `express-rate-limit`
+- `zod` (রিকোয়েস্ট/রেসপন্স ভ্যালিডেশন)
 
-Real-world Concepts
+✅ **এই ফেজ শেষে যা বানাতে পারবেন:**  
+একটি হাই-থ্রুপুট API গেটওয়ে যা ১০k+ রিকোয়েস্ট/সেকেন্ড হ্যান্ডল করতে পারে, রেট লিমিটিং, অথেন্টিকেশন, রিকোয়েস্ট ভ্যালিডেশন, স্ট্রাকচার্ড লগিং, ডিস্ট্রিবিউটেড ট্রেসিং এবং গ্রেসফুল শাটডাউন সহ—কন্টেইনারাইজড এনভায়রনমেন্টে ডিপ্লয় করতে পারবেন।
 
-· Schema Versioning: Handling multiple schema versions in production, backward compatibility
-· Soft Deletes: Implementation with indexes, query filters, data archival
-· Time-Series Data: Bucketing pattern, $merge for materialized views
-
-Tools & Libraries
-
-· mongoose (ODM) with plugins (autopopulate, paginate)
-· mongodb native driver
-· umzug (migrations)
-· mongosh, MongoDB Compass, Atlas Performance Advisor
-
-✅ What you should be able to build:
-A SaaS analytics platform handling millions of events with complex aggregations (real-time dashboards), sharded by tenant ID, with optimized indexes and sub-second query performance on large collections (50M+ documents).
-
-✅ Common mistakes to avoid:
-
-· Missing indexes causing collection scans—always use explain() for slow queries.
-· Deeply nested documents causing document growth—use referencing for unbounded arrays.
-· Overusing $lookup (JOINs) causing performance bottlenecks—denormalize where appropriate.
+✅ **সাধারণ ভুল ও প্রতিকার:**
+- ইভেন্ট লুপ ব্লক করা - সবসময় async/await ব্যবহার করুন, `fs.readFileSync` এড়িয়ে চলুন।
+- এরর রেসপন্সে সেনসিটিভ ডাটা এক্সপোজ করা - প্রোডাকশনে জেনেরিক এরর মেসেজ ব্যবহার করুন।
+- আনকট এক্সেপশন/রিজেকশন না হ্যান্ডল করা - `process.on('uncaughtException')` ইমপ্লিমেন্ট করুন।
 
 ---
 
-Phase 6: Senior Engineering Layer (Architect Mindset)
+## Phase 5: ডাটাবেস আর্কিটেকচার (MongoDB)
 
-Core Topics (Principles)
+### Core Topics (মূল বিষয়)
+- **ডাটা মডেলিং প্যাটার্ন**: ওয়ান-টু-মেনি, মেনি-টু-মেনি, পলিমরফিক অ্যাসোসিয়েশন, এম্বেডেড বনাম রেফারেন্সড ডকুমেন্ট
+- **ইন্ডেক্সিং স্ট্র্যাটেজি**: সিঙ্গেল ফিল্ড, কম্পাউন্ড, মাল্টিকি, টেক্সট, জিওস্পেশিয়াল ইন্ডেক্স; ইন্ডেক্স ইন্টারসেকশন
+- **অ্যাগ্রিগেশন পাইপলাইন**: `$match`, `$group`, `$lookup`, `$unwind`, `$facet`, `$bucket`, পাইপলাইন স্টেজ অপ্টিমাইজেশন
+- **ট্রানজেকশন**: মাল্টি-ডকুমেন্ট ACID ট্রানজেকশন (রেপ্লিকা সেট সহ)
 
-· SOLID Principles: Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion
-· Design Patterns: Strategy, Observer, Factory, Singleton, Repository, Dependency Injection
-· Architecture Patterns: Monolith vs Microservices, Modular Monolith, Serverless, Event-Driven Architecture
-· Clean Architecture: Domain layer, use cases, adapters, frameworks
+### Advanced Topics (উন্নত বিষয়)
+- **পারফরম্যান্স অপ্টিমাইজেশন**: এক্সপ্লেইন প্ল্যান, ইন্ডেক্স হিন্টস, কভার্ড কোয়েরি, শার্ড কী সিলেকশন
+- **চেঞ্জ স্ট্রিম**: রিয়েল-টাইম ডাটা সিঙ্ক্রোনাইজেশন, ইভেন্ট-ড্রিভেন আর্কিটেকচার
+- **রেপ্লিকেশন ও শার্ডিং**: রেপ্লিকা সেট (ফেইলওভার), শার্ডেড ক্লাস্টার, জোন শার্ডিং
+- **মাইগ্রেশন স্ট্র্যাটেজি**: মাইগ্রেশন টুলস (umzug) দিয়ে ডাটাবেস মাইগ্রেশন, জিরো-ডাউনটাইম ডিপ্লয়মেন্ট
 
-Advanced Topics (Security)
+### Real-world Concepts (বাস্তবধর্মী ধারণা)
+- **স্কিমা ভার্শনিং**: প্রোডাকশনে মাল্টিপল স্কিমা ভার্শন হ্যান্ডলিং, ব্যাকওয়ার্ড কম্প্যাটিবিলিটি
+- **সফট ডিলিট**: ইন্ডেক্স, কোয়েরি ফিল্টার, ডাটা আর্কাইভাল সহ ইমপ্লিমেন্টেশন
+- **টাইম-সিরিজ ডাটা**: বাকেটিং প্যাটার্ন, ম্যাটেরিয়ালাইজড ভিউ-এর জন্য `$merge`
 
-· OWASP Top 10: Injection, broken authentication, sensitive data exposure, XXE, broken access control, security misconfiguration, XSS, insecure deserialization, vulnerable components, insufficient logging
-· API Security: JWT best practices (short-lived tokens, refresh rotation), rate limiting by user/IP, API keys
-· Secrets Management: HashiCorp Vault, AWS Secrets Manager, environment variables encryption
-· Supply Chain Security: Dependency scanning (Snyk, npm audit), SBOM generation
+### Tools & Libraries (টুলস ও লাইব্রেরি)
+- `mongoose` (ODM) with plugins (অটোপপুলেট, পেজিনেট)
+- `mongodb` নেটিভ ড্রাইভার
+- `umzug` (মাইগ্রেশন)
+- `mongosh`, MongoDB কম্পাস, অ্যাটলাস পারফরম্যান্স অ্যাডভাইজর
 
-Testing
+✅ **এই ফেজ শেষে যা বানাতে পারবেন:**  
+একটি SaaS অ্যানালিটিক্স প্ল্যাটফর্ম যা মিলিয়ন ইভেন্ট হ্যান্ডল করে, কমপ্লেক্স অ্যাগ্রিগেশন (রিয়েল-টাইম ড্যাশবোর্ড), টেন্যান্ট আইডি অনুযায়ী শার্ডিং, এবং ৫০M+ ডকুমেন্টের উপর সাব-সেকেন্ড কোয়েরি পারফরম্যান্স নিশ্চিত করতে পারবেন।
 
-· Testing Pyramid: Unit (Jest/Vitest), Integration (Supertest), E2E (Playwright/Cypress)
-· Test Strategies: Snapshot testing, contract testing (Pact), visual regression testing (Loki)
-· Mocking: Jest mocks, MSW (Mock Service Worker) for API mocking
-· Test Coverage: Code coverage thresholds, mutation testing (Stryker)
-
-DevOps & Deployment
-
-· Containerization: Docker multi-stage builds, .dockerignore best practices, image size optimization
-· Orchestration: Kubernetes (pods, services, deployments, ingress), Helm charts
-· CI/CD Pipelines: GitHub Actions, GitLab CI—parallel jobs, caching, deployment strategies (blue/green, canary)
-· Infrastructure as Code: Terraform, AWS CDK, CloudFormation
-· Monitoring: Prometheus + Grafana, ELK Stack, Datadog, New Relic
-
-✅ What you should be able to build:
-A complete microservices-based application with service discovery, API gateway, distributed tracing, centralized logging, automated CI/CD, and infrastructure as code—deployed on Kubernetes with zero-downtime updates.
-
-✅ Common mistakes to avoid:
-
-· Premature microservices—start with modular monolith unless scale demands distribution.
-· Skipping contract testing in microservices—use Pact to ensure compatibility.
-· Hardcoding secrets—always use secret management tools.
+✅ **সাধারণ ভুল ও প্রতিকার:**
+- স্লো কোয়েরির জন্য ইন্ডেক্স মিস করা - সবসময় `explain()` ব্যবহার করুন।
+- ডিপলি নেস্টেড ডকুমেন্টে ডকুমেন্ট গ্রোথ - আনবাউন্ডেড অ্যারের জন্য রেফারেন্সিং ব্যবহার করুন।
+- `$lookup`-এর অতিরিক্ত ব্যবহার - যেখানে প্রয়োজন ডিনরমালাইজ করুন।
 
 ---
 
-Phase 7: System Design & Scalability (NEW - MUST INCLUDE)
+## Phase 6: সিনিয়র ইঞ্জিনিয়ারিং লেয়ার (আর্কিটেক্ট মানসিকতা)
 
-High-Level Design (HLD)
+### Core Topics (মূল বিষয় - প্রিন্সিপল)
+- **SOLID প্রিন্সিপল**: সিঙ্গেল রেসপনসিবিলিটি, ওপেন/ক্লোজড, লিসকভ সাবস্টিটিউশন, ইন্টারফেস সেগ্রিগেশন, ডিপেন্ডেন্সি ইনভার্সন
+- **ডিজাইন প্যাটার্ন**: স্ট্র্যাটেজি, অবজারভার, ফ্যাক্টরি, সিঙ্গেলটন, রিপোজিটরি, ডিপেন্ডেন্সি ইনজেকশন
+- **আর্কিটেকচার প্যাটার্ন**: মনোলিথ বনাম মাইক্রোসার্ভিস, মডুলার মনোলিথ, সার্ভারলেস, ইভেন্ট-ড্রিভেন আর্কিটেকচার
+- **ক্লিন আর্কিটেকচার**: ডোমেইন লেয়ার, ইউজ কেস, অ্যাডাপ্টার, ফ্রেমওয়ার্ক
 
-· Requirements Clarification: Functional vs non-functional, capacity estimation (DAU, QPS, storage)
-· System Components: Load balancers, CDN, API gateways, application servers, databases, caching, message queues
-· Architecture Diagrams: Data flow, network topology, component interaction
-· Trade-offs: Consistency vs availability (CAP theorem), SQL vs NoSQL, batch vs real-time
+### Advanced Topics (উন্নত বিষয় - সিকিউরিটি)
+- **OWASP টপ ১০**: ইনজেকশন, ব্রোকেন অথেন্টিকেশন, সেনসিটিভ ডাটা এক্সপোজার, XXE, ব্রোকেন অ্যাক্সেস কন্ট্রোল, সিকিউরিটি মিসকনফিগারেশন, XSS, ইনসিকিউর ডিসিরিয়ালাইজেশন, ভালনারেবল কম্পোনেন্ট, ইনসাফিসিয়েন্ট লগিং
+- **API সিকিউরিটি**: JWT বেস্ট প্র্যাকটিস (শর্ট-লিভ টোকেন, রিফ্রেশ রোটেশন), রেট লিমিটিং, API কী
+- **সিক্রেটস ম্যানেজমেন্ট**: HashiCorp Vault, AWS সিক্রেটস ম্যানেজার, এনভায়রনমেন্ট ভেরিয়েবল এনক্রিপশন
+- **সাপ্লাই চেইন সিকিউরিটি**: ডিপেন্ডেন্সি স্ক্যানিং (Snyk, npm audit), SBOM জেনারেশন
 
-Low-Level Design (LLD)
+### Testing (টেস্টিং)
+- **টেস্টিং পিরামিড**: ইউনিট (Jest/Vitest), ইন্টিগ্রেশন (Supertest), E2E (Playwright/Cypress)
+- **টেস্ট স্ট্র্যাটেজি**: স্ন্যাপশট টেস্টিং, কন্ট্রাক্ট টেস্টিং (Pact), ভিজুয়াল রিগ্রেশন টেস্টিং (Loki)
+- **মকিং**: Jest মক, API মকিংয়ের জন্য MSW (মক সার্ভিস ওয়ার্কার)
+- **টেস্ট কভারেজ**: কোড কভারেজ থ্রেশহোল্ড, মিউটেশন টেস্টিং (Stryker)
 
-· Class Diagrams: UML, entity relationships, design patterns application
-· API Contracts: REST endpoints, GraphQL schema, gRPC protobufs
-· Database Schema: ER diagrams, indexing strategy, sharding key design
-· State Machines: Workflow design, saga pattern for distributed transactions
+### DevOps & Deployment (ডেভঅপস ও ডিপ্লয়মেন্ট)
+- **কন্টেইনারাইজেশন**: ডকার মাল্টি-স্টেজ বিল্ড, `.dockerignore` বেস্ট প্র্যাকটিস, ইমেজ সাইজ অপ্টিমাইজেশন
+- **অর্কেস্ট্রেশন**: কুবারনেটিস (পড, সার্ভিস, ডিপ্লয়মেন্ট, ইংগ্রেস), হেলম চার্ট
+- **CI/CD পাইপলাইন**: গিটহাব অ্যাকশন, গিটল্যাব CI—প্যারালাল জব, ক্যাশিং, ডিপ্লয়মেন্ট স্ট্র্যাটেজি (ব্লু/গ্রিন, ক্যানারি)
+- **ইনফ্রাস্ট্রাকচার অ্যাজ কোড**: টেরাফর্ম, AWS CDK, ক্লাউডফর্মেশন
+- **মনিটরিং**: প্রমিথিউস + গ্রাফানা, ELK স্ট্যাক, ডাটাডগ, নিউ রেলিক
 
-Microservices
+✅ **এই ফেজ শেষে যা বানাতে পারবেন:**  
+একটি সম্পূর্ণ মাইক্রোসার্ভিস-বেসড অ্যাপ্লিকেশন যাতে সার্ভিস ডিসকভারি, API গেটওয়ে, ডিস্ট্রিবিউটেড ট্রেসিং, সেন্ট্রালাইজড লগিং, অটোমেটেড CI/CD, এবং ইনফ্রাস্ট্রাকচার অ্যাজ কোড থাকবে—কুবারনেটিসে জিরো-ডাউনটাইম আপডেট সহ ডিপ্লয় করতে পারবেন।
 
-· Service Decomposition: Bounded contexts, domain-driven design, strangler pattern
-· Communication: Synchronous (gRPC, REST) vs asynchronous (Kafka, RabbitMQ, SQS)
-· Service Mesh: Istio, Linkerd—traffic management, observability, security
-· API Gateway: Kong, NGINX, AWS API Gateway—routing, rate limiting, authentication
-
-Caching
-
-· Strategies: Cache-aside, write-through, write-behind, refresh-ahead
-· Cache Eviction: LRU, LFU, TTL
-· Distributed Caching: Redis Cluster, Memcached
-· Cache Invalidation: Event-driven invalidation, versioning, stale data handling
-
-Load Balancing
-
-· Algorithms: Round-robin, least connections, consistent hashing (for sharding)
-· Layer 4 vs Layer 7: Network load balancers (NLB) vs application load balancers (ALB/NGINX)
-· Auto-scaling: Horizontal Pod Autoscaler (K8s), AWS Auto Scaling Groups
-
-API Design
-
-· REST: Resource-oriented, HATEOAS, idempotency, pagination (cursor vs offset)
-· GraphQL: Schema design, resolver optimization, dataloader for N+1 problem, persisted queries
-· gRPC: Protocol buffers, streaming, bidirectional communication
-
-Real-world Concepts
-
-· Rate Limiting: Token bucket, sliding window, distributed rate limiting with Redis
-· Idempotency: Idempotency keys, database constraints, duplicate request handling
-· Eventual Consistency: Outbox pattern, message deduplication, idempotent consumers
-· Circuit Breaker: Resilience4j, Hystrix—failure isolation, fallback mechanisms
-
-✅ What you should be able to build:
-Design a URL shortener (e.g., bit.ly) serving 100M+ redirects/day with 99.99% availability, handling collisions, analytics tracking (click counts, geolocation), and caching at multiple layers.
-
-✅ Common mistakes to avoid:
-
-· Ignoring database bottleneck—always plan for read replicas and sharding.
-· Over-reliance on eventual consistency without communicating trade-offs to stakeholders.
-· Underestimating network latency in distributed systems—consider data locality and edge computing.
+✅ **সাধারণ ভুল ও প্রতিকার:**
+- অকালে মাইক্রোসার্ভিসে যাওয়া - স্কেল প্রয়োজন না হলে মডুলার মনোলিথ দিয়ে শুরু করুন।
+- মাইক্রোসার্ভিসে কন্ট্রাক্ট টেস্টিং স্কিপ করা - কম্প্যাটিবিলিটি নিশ্চিতে Pact ব্যবহার করুন।
+- সিক্রেটস হার্ডকোড করা - সবসময় সিক্রেট ম্যানেজমেন্ট টুল ব্যবহার করুন।
 
 ---
 
-🚀 5 Unique, Recruiter-Impressing Project Ideas
+## Phase 7: সিস্টেম ডিজাইন ও স্কেলেবিলিটি
 
-1. Real-Time Collaborative Code Editor (Google Docs for Code)
+### High-Level Design (হাই-লেভেল ডিজাইন)
+- **রিকুয়ারমেন্ট ক্লারিফিকেশন**: ফাংশনাল বনাম নন-ফাংশনাল, ক্যাপাসিটি এস্টিমেশন (DAU, QPS, স্টোরেজ)
+- **সিস্টেম কম্পোনেন্ট**: লোড ব্যালেন্সার, CDN, API গেটওয়ে, অ্যাপ্লিকেশন সার্ভার, ডাটাবেস, ক্যাশিং, মেসেজ কিউ
+- **আর্কিটেকচার ডায়াগ্রাম**: ডাটা ফ্লো, নেটওয়ার্ক টোপোলজি, কম্পোনেন্ট ইন্টারঅ্যাকশন
+- **ট্রেড-অফ**: কনসিসটেন্সি বনাম অ্যাভেইলেবিলিটি (CAP থিওরেম), SQL বনাম NoSQL, ব্যাচ বনাম রিয়েল-টাইম
 
-· System Design Complexity: Operational Transformation (OT) or CRDTs for conflict resolution, WebSocket server with Redis Pub/Sub for horizontal scaling, presence tracking, session persistence.
-· Database Modeling Depth: Versioned document store (MongoDB with change streams), user sessions, cursor positions, history tracking with time-travel debugging.
-· Scalability Considerations: Horizontal scaling of WebSocket servers (Socket.io with Redis adapter), sharding by document ID, CDN for static assets, rate limiting on API routes.
+### Low-Level Design (লো-লেভেল ডিজাইন)
+- **ক্লাস ডায়াগ্রাম**: UML, এন্টিটি রিলেশনশিপ, ডিজাইন প্যাটার্ন অ্যাপ্লিকেশন
+- **API কন্ট্রাক্ট**: REST এন্ডপয়েন্ট, GraphQL স্কিমা, gRPC প্রোটোবাফ
+- **ডাটাবেস স্কিমা**: ER ডায়াগ্রাম, ইন্ডেক্সিং স্ট্র্যাটেজি, শার্ডিং কী ডিজাইন
+- **স্টেট মেশিন**: ওয়ার্কফ্লো ডিজাইন, ডিস্ট্রিবিউটেড ট্রানজেকশনের জন্য সাগা প্যাটার্ন
 
-2. E-Commerce Platform with AI-Powered Personalization
+### Microservices (মাইক্রোসার্ভিস)
+- **সার্ভিস ডিকম্পোজিশন**: বাউন্ডেড কনটেক্সট, ডোমেইন-ড্রিভেন ডিজাইন, স্ট্র্যাংলার প্যাটার্ন
+- **কমিউনিকেশন**: সিঙ্ক্রোনাস (gRPC, REST) বনাম অ্যাসিনক্রোনাস (কাফকা, র্যাবিটএমকিউ, SQS)
+- **সার্ভিস মেশ**: Istio, Linkerd—ট্রাফিক ম্যানেজমেন্ট, অবজার্ভেবিলিটি, সিকিউরিটি
+- **API গেটওয়ে**: Kong, NGINX, AWS API গেটওয়ে—রাউটিং, রেট লিমিটিং, অথেন্টিকেশন
 
-· System Design Complexity: Microservices (product, cart, order, recommendation), event-driven architecture (Kafka), API gateway, GraphQL federation, A/B testing framework.
-· Database Modeling Depth: Polyglot persistence: MongoDB for products (flexible schema), PostgreSQL for orders (ACID), Redis for session/cart, Elasticsearch for search. Advanced aggregation for recommendation engine.
-· Scalability Considerations: Sharded databases, CDN for images, edge caching for product pages, auto-scaling based on traffic (flash sales), rate limiting per user.
+### Caching (ক্যাশিং)
+- **স্ট্র্যাটেজি**: ক্যাশ-অ্যাসাইড, রাইট-থ্রু, রাইট-বিহাইন্ড, রিফ্রেশ-অহেড
+- **ক্যাশ ইভিকশন**: LRU, LFU, TTL
+- **ডিস্ট্রিবিউটেড ক্যাশিং**: রেডিস ক্লাস্টার, মেমক্যাশড
+- **ক্যাশ ইনভ্যালিডেশন**: ইভেন্ট-ড্রিভেন ইনভ্যালিডেশন, ভার্শনিং, স্টেইল ডাটা হ্যান্ডলিং
 
-3. Video Streaming Platform (YouTube Clone with Transcoding)
+### Load Balancing (লোড ব্যালেন্সিং)
+- **অ্যালগরিদম**: রাউন্ড-রবিন, লিস্ট কানেকশন, কনসিসটেন্ট হ্যাশিং (শার্ডিং-এর জন্য)
+- **লেয়ার ৪ বনাম লেয়ার ৭**: নেটওয়ার্ক লোড ব্যালেন্সার (NLB) বনাম অ্যাপ্লিকেশন লোড ব্যালেন্সার (ALB/NGINX)
+- **অটো-স্কেলিং**: হরাইজন্টাল পড অটোস্কেলার (K8s), AWS অটো স্কেলিং গ্রুপ
 
-· System Design Complexity: Video upload pipeline (S3 pre-signed URLs), async transcoding (FFmpeg, SQS/ BullMQ), HLS/DASH streaming, CDN distribution, adaptive bitrate streaming.
-· Database Modeling Depth: Metadata store (MongoDB), view count aggregation (atomic increments, eventual consistency), user watch history (time-series data), recommendation graph (Neo4j).
-· Scalability Considerations: Object storage (S3) for videos, CDN for global distribution, database read replicas for analytics, queue-based transcoding with autoscaling workers, caching video metadata with Redis.
+### API Design (এপিআই ডিজাইন)
+- **REST**: রিসোর্স-ওরিয়েন্টেড, HATEOAS, আইডেম্পোটেন্সি, পেজিনেশন (কার্সর বনাম অফসেট)
+- **GraphQL**: স্কিমা ডিজাইন, রিজলভার অপ্টিমাইজেশন, N+1 সমস্যার জন্য ডাটালোডার, পারসিস্টেড কোয়েরি
+- **gRPC**: প্রোটোকল বাফার, স্ট্রিমিং, বাইডাইরেকশনাল কমিউনিকেশন
 
-4. Financial Transaction System (Digital Wallet)
+### Real-world Concepts (বাস্তবধর্মী ধারণা)
+- **রেট লিমিটিং**: টোকেন বাকেট, স্লাইডিং উইন্ডো, রেডিস দিয়ে ডিস্ট্রিবিউটেড রেট লিমিটিং
+- **আইডেম্পোটেন্সি**: আইডেম্পোটেন্সি কি, ডাটাবেস কনস্ট্রেন্ট, ডুপ্লিকেট রিকোয়েস্ট হ্যান্ডলিং
+- **ইভেনচুয়াল কনসিসটেন্সি**: আউটবক্স প্যাটার্ন, মেসেজ ডিডুপ্লিকেশন, আইডেম্পোটেন্ট কনজিউমার
+- **সার্কিট ব্রেকার**: Resilience4j, Hystrix—ফেইলিউর আইসোলেশন, ফলব্যাক মেকানিজম
 
-· System Design Complexity: Distributed transactions (Saga pattern), idempotency keys, event sourcing, CQRS, two-phase commit avoidance, audit logging.
-· Database Modeling Depth: ACID transactions (PostgreSQL), ledger table design (immutable entries), balance calculation with optimistic locking, sharding by user ID, time-series for transaction history.
-· Scalability Considerations: Read replicas for reporting, horizontal sharding, circuit breakers for external payment gateways, retry with exponential backoff, compliance with PCI-DSS (tokenization).
+✅ **এই ফেজ শেষে যা ডিজাইন করতে পারবেন:**  
+একটি ইউআরএল শর্টনার (যেমন bit.ly) ডিজাইন করতে পারবেন যা ১০০M+ রিডাইরেক্ট/ডে সার্ভ করবে ৯৯.৯৯% অ্যাভেইলেবিলিটি সহ, কলিশন হ্যান্ডলিং, অ্যানালিটিক্স ট্র্যাকিং (ক্লিক কাউন্ট, জিওলোকেশন), এবং মাল্টিপল লেয়ারে ক্যাশিং।
 
-5. IoT Data Ingestion & Analytics Platform
-
-· System Design Complexity: MQTT/WebSocket ingestion, time-series database (TimescaleDB/InfluxDB), stream processing (Kafka Streams/Apache Flink), real-time anomaly detection (ML models), alerting engine.
-· Database Modeling Depth: Device registry (MongoDB), sensor readings (time-series with downsampling, retention policies), geospatial queries (PostGIS), aggregation pipelines for dashboards.
-· Scalability Considerations: Partitioned Kafka topics, database sharding by device ID, edge computing for preprocessing, auto-scaling ingestion layer, cold storage for historical data (S3 Glacier).
+✅ **সাধারণ ভুল ও প্রতিকার:**
+- ডাটাবেস বটলনেক উপেক্ষা - সবসময় রিড রেপ্লিকা এবং শার্ডিংয়ের পরিকল্পনা করুন।
+- ইভেনচুয়াল কনসিসটেন্সিতে অতিরিক্ত নির্ভরতা - স্টেকহোল্ডারদের ট্রেড-অফ জানান।
+- ডিস্ট্রিবিউটেড সিস্টেমে নেটওয়ার্ক লেটেন্সি অবমূল্যায়ন - ডাটা লোকালিটি এবং এজ কম্পিউটিং বিবেচনা করুন।
 
 ---
 
-Final Note:
-This roadmap is intentionally aggressive. Skip nothing labeled "Advanced" if you aim for Staff Engineer. Each phase should take 4–6 weeks of focused, daily execution—building projects, not just watching tutorials. Your deliverable is production-grade systems, not proof-of-concept demos. Start today.
+## 🚀 ৫টি ইউনিক, রিক্রুটার-ইম্প্রেসিং প্রজেক্ট আইডিয়া
+
+### ১. রিয়েল-টাইম কলাবোরেটিভ কোড এডিটর (গুগল ডকস ফর কোড)
+
+| দিক | বিবরণ |
+|------|--------|
+| **সিস্টেম ডিজাইন কমপ্লেক্সিটি** | অপারেশনাল ট্রান্সফরমেশন (OT) বা CRDT দিয়ে কনফ্লিক্ট রেজোলিউশন, রেডিস পাব/সাব সহ ওয়েবসকেট সার্ভার হরাইজন্টাল স্কেলিং, প্রেজেন্স ট্র্যাকিং, সেশন পারসিস্টেন্স |
+| **ডাটাবেস মডেলিং ডেপ্থ** | ভার্শনড ডকুমেন্ট স্টোর (MongoDB with change streams), ইউজার সেশন, কার্সর পজিশন, টাইম-ট্রাভেল ডিবাগিং সহ হিস্ট্রি ট্র্যাকিং |
+| **স্কেলেবিলিটি কনসিডারেশন** | ওয়েবসকেট সার্ভারের হরাইজন্টাল স্কেলিং (Socket.io with Redis adapter), ডকুমেন্ট আইডি অনুযায়ী শার্ডিং, স্ট্যাটিক অ্যাসেটের জন্য CDN, API রুটে রেট লিমিটিং |
+
+### ২. এআই-পাওয়ারড পার্সোনালাইজেশন সহ ই-কমার্স প্ল্যাটফর্ম
+
+| দিক | বিবরণ |
+|------|--------|
+| **সিস্টেম ডিজাইন কমপ্লেক্সিটি** | মাইক্রোসার্ভিস (প্রোডাক্ট, কার্ট, অর্ডার, রিকমেন্ডেশন), ইভেন্ট-ড্রিভেন আর্কিটেকচার (কাফকা), API গেটওয়ে, গ্রাফকিউএল ফেডারেশন, A/B টেস্টিং ফ্রেমওয়ার্ক |
+| **ডাটাবেস মডেলিং ডেপ্থ** | পলিগ্লট পারসিস্টেন্স: প্রোডাক্টের জন্য MongoDB (ফ্লেক্সিবল স্কিমা), অর্ডারের জন্য PostgreSQL (ACID), সেশন/কার্টের জন্য রেডিস, সার্চের জন্য ইলাস্টিকসার্চ। রিকমেন্ডেশন ইঞ্জিনের জন্য অ্যাডভান্সড অ্যাগ্রিগেশন |
+| **স্কেলেবিলিটি কনসিডারেশন** | শার্ডেড ডাটাবেস, ইমেজের জন্য CDN, প্রোডাক্ট পেজের জন্য এজ ক্যাশিং, ট্রাফিক অনুযায়ী অটো-স্কেলিং (ফ্ল্যাশ সেল), ইউজার প্রতি রেট লিমিটিং |
+
+### ৩. ভিডিও স্ট্রিমিং প্ল্যাটফর্ম (ট্রান্সকোডিং সহ ইউটিউব ক্লোন)
+
+| দিক | বিবরণ |
+|------|--------|
+| **সিস্টেম ডিজাইন কমপ্লেক্সিটি** | ভিডিও আপলোড পাইপলাইন (S3 প্রি-সাইনড ইউআরএল), অ্যাসিন্ক ট্রান্সকোডিং (FFmpeg, SQS/BullMQ), HLS/DASH স্ট্রিমিং, CDN ডিস্ট্রিবিউশন, অ্যাডাপটিভ বিটরেট স্ট্রিমিং |
+| **ডাটাবেস মডেলিং ডেপ্থ** | মেটাডাটা স্টোর (MongoDB), ভিউ কাউন্ট অ্যাগ্রিগেশন (অ্যাটমিক ইনক্রিমেন্ট, ইভেনচুয়াল কনসিসটেন্সি), ইউজার ওয়াচ হিস্ট্রি (টাইম-সিরিজ ডাটা), রিকমেন্ডেশন গ্রাফ (Neo4j) |
+| **স্কেলেবিলিটি কনসিডারেশন** | ভিডিওর জন্য অবজেক্ট স্টোরেজ (S3), গ্লোবাল ডিস্ট্রিবিউশনের জন্য CDN, অ্যানালিটিক্সের জন্য ডাটাবেস রিড রেপ্লিকা, অটোস্কেলিং ওয়ার্কার সহ কিউ-বেসড ট্রান্সকোডিং, রেডিসে ভিডিও মেটাডাটা ক্যাশিং |
+
+### ৪. ফাইন্যান্সিয়াল ট্রানজেকশন সিস্টেম (ডিজিটাল ওয়ালেট)
+
+| দিক | বিবরণ |
+|------|--------|
+| **সিস্টেম ডিজাইন কমপ্লেক্সিটি** | ডিস্ট্রিবিউটেড ট্রানজেকশন (সাগা প্যাটার্ন), আইডেম্পোটেন্সি কি, ইভেন্ট সোর্সিং, CQRS, টু-ফেজ কমিট এভয়েডেন্স, অডিট লগিং |
+| **ডাটাবেস মডেলিং ডেপ্থ** | ACID ট্রানজেকশন (PostgreSQL), লেজার টেবিল ডিজাইন (ইমিউটেবল এন্ট্রি), অপটিমিস্টিক লকিং সহ ব্যালেন্স ক্যালকুলেশন, ইউজার আইডি অনুযায়ী শার্ডিং, ট্রানজেকশন হিস্ট্রির জন্য টাইম-সিরিজ |
+| **স্কেলেবিলিটি কনসিডারেশন** | রিপোর্টিংয়ের জন্য রিড রেপ্লিকা, হরাইজন্টাল শার্ডিং, এক্সটার্নাল পেমেন্ট গেটওয়ের জন্য সার্কিট ব্রেকার, এক্সপোনেনশিয়াল ব্যাকঅফ সহ রিট্রাই, PCI-DSS কমপ্লায়েন্স (টোকেনাইজেশন) |
+
+### ৫. আইওটি ডাটা ইনজেশন ও অ্যানালিটিক্স প্ল্যাটফর্ম
+
+| দিক | বিবরণ |
+|------|--------|
+| **সিস্টেম ডিজাইন কমপ্লেক্সিটি** | MQTT/WebSocket ইনজেশন, টাইম-সিরিজ ডাটাবেস (TimescaleDB/InfluxDB), স্ট্রিম প্রসেসিং (কাফকা স্ট্রিমস/Apache Flink), রিয়েল-টাইম অ্যানোমালি ডিটেকশন (ML মডেল), অ্যালার্টিং ইঞ্জিন |
+| **ডাটাবেস মডেলিং ডেপ্থ** | ডিভাইস রেজিস্ট্রি (MongoDB), সেন্সর রিডিং (ডাউনস্যাম্পলিং, রিটেনশন পলিসি সহ টাইম-সিরিজ), জিওস্পেশিয়াল কোয়েরি (PostGIS), ড্যাশবোর্ডের জন্য অ্যাগ্রিগেশন পাইপলাইন |
+| **স্কেলেবিলিটি কনসিডারেশন** | পার্টিশনড কাফকা টপিক, ডিভাইস আইডি অনুযায়ী ডাটাবেস শার্ডিং, প্রিপ্রসেসিংয়ের জন্য এজ কম্পিউটিং, ইনজেশন লেয়ার অটো-স্কেলিং, হিস্টোরিক্যাল ডাটার জন্য কোল্ড স্টোরেজ (S3 গ্লেসিয়ার) |
+
+---
+
+## 📝 শেষ কথা
+
+এই রোডম্যাপটি ইচ্ছাকৃতভাবে অ্যাগ্রেসিভভাবে ডিজাইন করা হয়েছে। "অ্যাডভান্সড" লেবেলযুক্ত কিছু স্কিপ করবেন না যদি স্টাফ ইঞ্জিনিয়ার হতে চান। প্রতিটি ফেজে ৪-৬ সপ্তাহের ফোকাসড, ডেইলি এক্সিকিউশন প্রয়োজন—শুধু টিউটোরিয়াল দেখা নয়, বরং প্রোডাকশন-গ্রেড সিস্টেম বিল্ড করতে হবে। আপনার ডেলিভারেবল হবে প্রোডাকশন-রেড সিস্টেম, প্রুফ-অফ-কনসেপ্ট ডেমো নয়।
+
+**আজই শুরু করুন। 🚀**
